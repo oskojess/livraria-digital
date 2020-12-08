@@ -23,13 +23,19 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log(err))
 
- app.use('/api/autor', autor)
- app.use('/api/livro', livro)
+  app.use(express.json());
+
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+ app.use('/api/autor', autor);
+ app.use('/api/livro', livro);
 
 app.use((err, req, res, next) => {
   console.error(err)
   res.status(500).send('Server Error')
 })
+
 
 app.listen(PORT, () => {
   console.log('Está rodando')
