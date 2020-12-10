@@ -10,8 +10,6 @@ const livroController = require('../controllers/livro');
 @endpoint http://localhost:porta/api/livro
 **/
 router.get('/', livroController.getAll);
-
-
 router.post('/', livroController.addLivro);
 router.put('/editar/:id', livroController.atualizarTitulo);
 router.patch('/emprestimo/:id', livroController.emprestarLivro);

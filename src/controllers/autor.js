@@ -11,7 +11,7 @@ const getAll = (request, response, next)=>{
 }
 
 const addAutor = (request, response, next)=>{
-  let { nome, biografia } = request.body
+  let { nome, biografia } = request
 
   const newAutor = new Autor({
       nome,
