@@ -11,7 +11,7 @@ dotenv.config();
  */
 
   const MONGO_URI = process.env.MONGO_URI
-  const PORT = process.env.PORT
+  const PORT = process.env.PORT || 5000
 
   const autor = require('./src/routes/autor');
   const livro = require('./src/routes/livro');
