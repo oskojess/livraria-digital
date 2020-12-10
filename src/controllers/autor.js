@@ -11,7 +11,7 @@ const getAll = (request, response, next)=>{
 }
 
 const addAutor = (request, response, next)=>{
-  let { nome, biografia } = request
+  let { nome, biografia } = request.body
 
   const newAutor = new Autor({
       nome,
@@ -19,7 +19,7 @@ const addAutor = (request, response, next)=>{
     });
     newAutor.save()
       .then((res) => {
-          response.status(201).send({ mensagem: `${newAutor.nome} foi criado com sucesso.  `});
+          response.status(201).json({ mensagem: `${newAutor.nome} foi criado com sucesso.  `});
       })
       .catch(err => next(err));
 
